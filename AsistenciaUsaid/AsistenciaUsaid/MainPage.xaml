@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AsistenciaUsaid"
+             x:Class="AsistenciaUsaid.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Registro de alumnos" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+        <Entry Placeholder="Nombre" x:Name="ENombre"/>
+        <Entry Placeholder="Apellido" x:Name="EApellido"/>
+        <Entry Placeholder="Edad" Keyboard="Numeric" x:Name="EEdad"/>
+        <Entry Placeholder="Especialidad" x:Name="EEspecialidad"/>
+        <Button Text="Registrar &#10;Asistencia" HorizontalOptions="Center" BackgroundColor="Red" FontSize="9"
+                HeightRequest="80" WidthRequest="80" CornerRadius="40" Clicked="Button_Clicked" TextColor="White"/>
+        <BoxView HorizontalOptions="StartAndExpand" HeightRequest="0.5"/>
+        <ListView x:Name="ListViewAlumnos">
+
+            <ListView.Header>
+                <StackLayout BackgroundColor="Red">
+                    <Label Text="Lista de alumnos registrados" TextColor="White" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ListView.Header>
+            
+            <ListView.Footer>
+                <StackLayout>
+                    <Label Text="Derechos reservados para xamarin Usaid" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ListView.Footer>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Nombre}" Detail="{Binding Especialidad}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
